@@ -481,6 +481,3 @@ function toggle_about() {
 
 toggle_about()
 about.on("click", toggle_about)
-
-
-//pirulo
