@@ -448,6 +448,39 @@ let about = d3.select("body")
   .append("div")
   .attr("id", "about")
   
-about.append("h3").text("About")
-about.append("a").attr("href", "")
+function toggle_about() {
+  if (about_visible) {
+    about.selectAll("*").remove();
+    about.style("height", "auto")
+    .style("width", "auto")
+    .style("padding", "0px")
+    .style("border-radius", "16px")
+    .style("padding", "16px")
+    .style("align-items", "start")
+    .style("justify-content", "center")
+
+    about.append("h3").text("About")
+    about.append("hr")
+    github = about.append("a").attr("href", "https://github.com/lucadra/MappaMilanoElezioni_250922")
+    github.append("img").attr("src", "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png").attr("height", "24px")
+    github.append("p").text("lucadra")
+    colab = about.append("a").attr("href", "https://colab.research.google.com/github/lucadra/MappaMilanoElezioni_250922/blob/main/Mappa_Dati_Elettorali_Politiche_Milano_2022.ipynb")
+    colab.append("img").attr("src", "https://colab.research.google.com/assets/colab-badge.svg")
+    
+  } else {
+    about.selectAll("*").remove();
+    about.append("h3").text("?")
+    about.style("height", "16px")
+    .style("width", "16px")
+    .style("border-radius", "50%")
+    .style("align-items", "center")
+    .style("justify-content", "center")
+  }
+  about_visible = !about_visible;
+}
+
+toggle_about()
+about.on("click", toggle_about)
+
+
 //pirulo

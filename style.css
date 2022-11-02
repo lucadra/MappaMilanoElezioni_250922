@@ -175,3 +175,36 @@ input#show_affluenza {
 .legend-wrapper > h3 {
     margin-right: 4px; 
 }
+
+#about {
+  position: absolute; 
+  top: 16px;
+  right: 16px;
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+#about > h3 {
+    margin: 0;
+}
+
+#about > a > p {
+    margin: 0;
+    margin-left: 8px;
+}
+
+
+a {
+  display: flex;
+  flex-direction: row;
+  justify-content: baseline;
+  align-items: center;
+  text-decoration: none;
+  color: #000;
+  margin-top: 8px;
+}
+
+
