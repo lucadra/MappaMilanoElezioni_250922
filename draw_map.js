@@ -30,13 +30,13 @@ d3.select("#map").selectAll("*").remove();
     );
 
     let affluenza_color = d3
-      .scaleSequential()
-      .domain([affluenza_min, affluenza_max])
+      .scaleDiverging()
+      .domain([.2, 0.6, .8])
       .interpolator(d3.interpolatePlasma);
 
     const voti_max = d3.max(data.features, (d) =>
       d.properties[`${party_ext}_${chamber}`] /
-        d.properties[`Votanti_${chamber}`] ==
+        d.properties[`Validi_${chamber}`] ==
       Infinity
         ? 0
         : d.properties[`${party_ext}_${chamber}`] /
@@ -54,10 +54,21 @@ d3.select("#map").selectAll("*").remove();
         d.properties[`Validi_${chamber}`]
     );
 
+    //let voti_color = d3
+    //  .scaleSequential()
+    //  .domain([voti_min, voti_max])
+    //  .range(["rgba(255,255,255,0)", party_color_dict[party]]);
+
+    
+    //let voti_color = d3
+    //  .scaleSequential()
+    //  .domain([0, 0.35])
+    //  .range(["rgba(255,255,255,0)", party_color_dict[party]]);
+
     let voti_color = d3
       .scaleSequential()
-      .domain([voti_min, voti_max])
-      .range(["rgba(255,255,255,0)", party_color_dict[party]]);
+      .domain([0,0.35])
+      .interpolator(d3.interpolatePlasma)
 
     const svg = d3
       .select("#map")

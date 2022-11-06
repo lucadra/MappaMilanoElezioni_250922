@@ -111,9 +111,9 @@ party_dict = {
   "ALLEANZA VERDI E SINISTRA_camera": "Alleanza Verdi e Sinistra",
   "ALLEANZA VERDI E SINISTRA_senato": "Alleanza Verdi e Sinistra",
   "ALLEANZA VERDI E SINISTRA": "Alleanza Verdi e Sinistra",
-  "AZIONE - ITALIA VIVA - CALENDA_camera": "Azione - Italia Viva - Calenda",
-  "AZIONE - ITALIA VIVA - CALENDA_senato": "Azione - Italia Viva - Calenda",
-  "AZIONE - ITALIA VIVA - CALENDA": "Azione - Italia Viva - Calenda",
+  "AZIONE - ITALIA VIVA - CALENDA_camera": "Azione - Italia Viva",
+  "AZIONE - ITALIA VIVA - CALENDA_senato": "Azione - Italia Viva",
+  "AZIONE - ITALIA VIVA - CALENDA": "Azione - Italia Viva",
   "FORZA ITALIA_camera": "Forza Italia",
   "FORZA ITALIA_senato": "Forza Italia",
   "FORZA ITALIA": "Forza Italia",
@@ -150,20 +150,20 @@ party_dict = {
 };
 
 party_color_dict = {
-  "+ Europa": "#FFD600",
-  "Alleanza Verdi e Sinistra": "#B71C1C",
-  "Azione - Italia Viva - Calenda": "#1565C0",
-  "Forza Italia": "#303F9F",
-  "Fratelli d'Italia": "#303F9F",
-  "Impegno Civico": "#009688",
-  ItalExit: "#366A9F",
-  "Italia Sovrana e Popolare": "#BF360C",
-  Lega: "#283593",
-  "Noi di Centro Europei": "#880E4F",
-  "Movimento 5 Stelle": "#FFAB00",
-  "Noi Moderati": "#880E4F",
-  "Partito Democratico": "#D50000",
-  "Unione Popolare": "#4A148C",
+  "+ Europa":                   "#FF6D00",
+  "Alleanza Verdi e Sinistra":  "#B71C1C",
+  "Azione - Italia Viva":       "#1565C0",
+  "Forza Italia":               "#303F9F",
+  "Fratelli d'Italia":          "#303F9F",
+  "Impegno Civico":             "#009688",
+  ItalExit:                     "#366A9F",
+  "Italia Sovrana e Popolare":  "#BF360C",
+  Lega:                         "#283593",
+  "Noi di Centro Europei":      "#880E4F",
+  "Movimento 5 Stelle":         "#FFAB00",
+  "Noi Moderati":               "#880E4F",
+  "Partito Democratico":        "#D50000",
+  "Unione Popolare":            "#4A148C",
 };
 
 function findMostVotedParty(d) {
@@ -207,8 +207,9 @@ function appendPartyOptions() {
       party_ext = this.value;
       party = party_dict[this.value];
       draw_map();
-    });
+      d3.select("#map").append("div").attr("id", "currentParty").text(party);
 
+    });
   option_party
     .append("label")
     .attr("for", (d) => d)
@@ -366,7 +367,6 @@ function appendInfo(d) {
     };
 
     let data_ready = pie(get_pie_data(d, include_affluenza));
-
 
     donut_svg
       .selectAll("path")
