@@ -32,7 +32,7 @@ d3.select("#map").selectAll("*").remove();
     let affluenza_color = d3
       .scaleDiverging()
       .domain([.2, 0.6, .8])
-      .interpolator(d3.interpolatePlasma);
+      .interpolator(d3.interpolateInferno);
 
     const voti_max = d3.max(data.features, (d) =>
       d.properties[`${party_ext}_${chamber}`] /
@@ -68,7 +68,7 @@ d3.select("#map").selectAll("*").remove();
     let voti_color = d3
       .scaleSequential()
       .domain([0,0.35])
-      .interpolator(d3.interpolatePlasma)
+      .interpolator(d3.interpolateInferno)
 
     const svg = d3
       .select("#map")
